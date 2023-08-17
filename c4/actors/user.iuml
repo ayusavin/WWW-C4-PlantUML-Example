@@ -1,0 +1,5 @@
+@startuml user
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(user, "User", "Man, who read articles")
+@enduml

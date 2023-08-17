@@ -1,0 +1,21 @@
+@startuml Foobr-System
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+left to right direction
+
+Person(user, "User", "Man, who might interact with Foobr Services")
+Person(admin, "Admin", "Man, who might CRUD articles, users, hubs, events")
+
+System(foobr, "Foobr", "Provide feed, user info and hubs")
+System(events, "Foobr Events", "Provide user relevant events")
+System(auth, "Authn", "Provide user identities")
+
+Rel(user, foobr, "CRUD articles and user profile info", "HTTPS")
+Rel(foobr, auth, "Using to authenticate user and authorize user requests", "HTTPS/OpenID")
+Rel(events, foobr, "To recieve data for recomendation system (hub's)", "HTTPS/REST API")
+Rel(admin, foobr, "CRUD hubs, articles, users", "HTTPS")
+Rel(admin, events, "CRUD events and approve user participate on events", "HTTPS")
+Rel(user, events, "Send events on approval and RUD events, and participate in events", "HTTPS")
+Rel(events, auth, "Using to authenticate user and authorize user requests", "HTTPS/OpenID")
+
+@enduml

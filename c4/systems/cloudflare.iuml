@@ -1,0 +1,5 @@
+@startuml idp
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+System_Ext(cloudflare, "Cloudlfare", "Cloudflare services")
+@enduml

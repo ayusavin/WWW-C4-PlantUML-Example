@@ -1,0 +1,14 @@
+@startuml foobr_boundary
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!ifndef actors
+    !define actors c4/actors
+!endif
+
+System_Boundary(foobr, "Foobr"){
+    !include actors/supabase.iuml
+    !include actors/fubr-spa.iuml
+}
+
+Rel(spa, supabase, "Using to query articles and users", "HTTPS/supabase-js")
+@enduml
